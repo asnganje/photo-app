@@ -35,7 +35,7 @@
         <div class="d-flex gap-2">
             <p class="mt-2"><%= current_user.full_name %></p>
             <%= link_to('Sign out', destroy_user_session_path,
-            class:"btn btn-xs btn-danger mx-2", data: {turbo_method: :delete}
+            class:"btn btn-xs btn-danger", data: {turbo_method: :delete}
             ) %>
         </div>
       <% else %>
