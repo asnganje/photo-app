@@ -67,3 +67,4 @@ end
 
 gem "cssbundling-rails", "~> 1.4"
 gem 'dotenv-rails'
+gem 'stripe'
