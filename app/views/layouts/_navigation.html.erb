@@ -1,6 +1,6 @@
 <nav class="navbar container navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <%= link_to 'Photo-App', root_path, class:"navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,13 +14,17 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Profile
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <%= link_to 'Sign Up', new_user_registration_path, class:"dropdown-item" %>
+            </li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li>
+              <%= link_to 'Edit Profile', edit_user_registration_path, class:"dropdown-item" %>
+            </li>
+            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -28,11 +32,14 @@
         </li>
       </ul>
       <% if current_user %>
-        <%= link_to('Sign out', destroy_user_session_path,
+        <div class="d-flex gap-2">
+            <p class="mt-2"><%= current_user.full_name %></p>
+            <%= link_to('Sign out', destroy_user_session_path,
             class:"btn btn-xs btn-danger mx-2", data: {turbo_method: :delete}
             ) %>
+        </div>
       <% else %>
-                <%= link_to 'Sign in', new_user_session_path, class:"btn btn-primary ms-auto" %>
+        <%= link_to 'Sign in', new_user_session_path, class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
